@@ -3,10 +3,14 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mustache from 'mustache-express';
 import path from 'path';
+import { mongoConnect } from './database/mongo';
 import mainRouters from './routers/index';
 
 // Definindo o DOTENV
 dotenv.config();
+
+// Conectando ao MongoDB 
+mongoConnect();
 
 // Definindo o servidor
 const server = express();
