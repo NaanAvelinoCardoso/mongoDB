@@ -8,7 +8,7 @@ type UserType = {
     name: string
 }
 
-// criando o Schema / Estrutura dos dados
+// criando o Schema & Estrutura dos dados
 const schema = new Schema<UserType>({
     email: String,
     age: Number,
