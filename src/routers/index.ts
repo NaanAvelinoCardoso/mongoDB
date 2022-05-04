@@ -6,4 +6,6 @@ const router = Router();
 
 router.get('/', indexController.home);
 
+router.post('/novo-usuario', indexController.addUser);
+
 export default router;

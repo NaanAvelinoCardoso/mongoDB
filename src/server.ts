@@ -22,6 +22,9 @@ server.engine('mustache', mustache());
 
 server.use(express.static(path.join(__dirname, '../public')));
 
+// Faz com que eu consiga pegar dados do body das requesições
+server.use(express.urlencoded({extended: true}));  
+
 // Rotas
 server.use(mainRouters);
 
