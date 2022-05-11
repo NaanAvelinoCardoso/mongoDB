@@ -4,8 +4,11 @@ import User from '../models/User';
 
 export const home = async (req: Request, res: Response) => {
     let users = await User.find({});
-
-    await User.updateMany({ age: 20 },{ age: 18 });
+    let usuario = await User.findOne({ name: 'Cristiano Silva' });
+    if(usuario) {
+        usuario.name = 'Naan';
+        await usuario.save();
+    }
 
     res.render('pages/home', {
         users
