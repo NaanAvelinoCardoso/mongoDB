@@ -4,11 +4,6 @@ import User from '../models/User';
 
 export const home = async (req: Request, res: Response) => {
     let users = await User.find({});
-    let usuario = await User.findOne({ name: 'Cristiano Silva' });
-    if(usuario) {
-        usuario.name = 'Naan';
-        await usuario.save();
-    }
 
     res.render('pages/home', {
         users
@@ -32,5 +27,18 @@ export const addUser = async (req: Request, res: Response) => {
             }
         let result = await newUser.save();
         res.redirect("/");       
+    }
+};
+
+export const update = async (req: Request, res: Response) => {
+    let id = req.params.id;
+
+    if(id) {
+        let user = await User.findById(id);
+        if(user) {
+            user.age++;
+            await user.save();
+            res.redirect("/");
+        }
     }
 };
